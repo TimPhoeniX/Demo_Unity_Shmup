@@ -1,0 +1,3 @@
+[submodule "unity-object-pool"]
+	path = unity-object-pool
+	url = https://github.com/thefuntastic/unity-object-pool.git
