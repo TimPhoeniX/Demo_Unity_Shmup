@@ -1,1 +1,3 @@
-# Demo_Unity_Shmup
+# Simple Shmup Demo in Unity
+
+Uses object pooling
