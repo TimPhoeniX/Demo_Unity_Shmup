@@ -5,16 +5,26 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float Speed = 1f;
     private float Velocity = 0f;
+    public float Speed = 1f;
+
+    public GameObject Bullet;
 
     void Start()
     {
+        if (Bullet == null)
+        {
+            throw new UnassignedReferenceException("Bullet is unassigned");
+        }
+        PoolManager.WarmPool(Bullet, 8);
     }
 
     void OnFire()
     {
         Debug.Log("OnFire!");
+        var position = this.gameObject.transform.position;
+        position.y += 0.5f;
+        var bullet = PoolManager.SpawnObject(Bullet, position, Quaternion.identity);
     }
 
     void OnMove(InputValue value)
